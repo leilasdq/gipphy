@@ -11,4 +11,9 @@ ext {
     compose_version = '1.4.0-rc01'
     composeCoil_version = '2.2.2'
     composeMaterialThree_version = '1.0.1'
+    ktor_version = '1.5.0'
+    logging_version = '1.2.3'
+    serialization_version = '1.4.1'
+    koin_version = '3.4.2'
+    koin_android_version = '3.4.2'
 }

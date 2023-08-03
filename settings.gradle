@@ -16,3 +16,4 @@ rootProject.name = "Gipphy Application"
 include ':app'
 include ':domain'
 include ':common'
+include ':remote'
