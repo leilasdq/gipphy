@@ -5,5 +5,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface GetGifsRepository {
 
-    fun getAllGifs(): Flow<GetResult<Gifs>>
+    fun getAllGifs(): Flow<GetResult<List<Gifs>>>
 }
