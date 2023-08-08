@@ -1,8 +1,9 @@
-package com.example.gipphyapplication
+package com.example.gipphyapplication.ui
 
 import android.app.Application
 import com.example.di.repositoryModule
 import com.example.domain.di.domainModule
+import com.example.gipphyapplication.di.vmModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -15,7 +16,7 @@ class MainApplication: Application() {
         startKoin {
             androidLogger()
             androidContext(this@MainApplication)
-            modules(domainModule, repositoryModule)
+            modules(domainModule, repositoryModule, vmModule)
         }
     }
 }

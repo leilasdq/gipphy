@@ -13,6 +13,10 @@ class GetGifsRepositoryImpl(
     override fun getAllGifs(): Flow<GetResult<List<Gifs>>> =
         networkResult(
             { service.getAllGifs() },
-            { remoteData -> remoteData.map { it.toDomain() } }
+            { remoteData ->
+                remoteData.items.map {
+                    it.toDomain()
+                }
+            }
         )
 }
