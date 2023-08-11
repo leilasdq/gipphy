@@ -12,4 +12,6 @@ data class GifsDto(
     val username: String,
     @SerialName("rating")
     val rating: String,
+    @SerialName("images")
+    val images: GifImageDto
 )

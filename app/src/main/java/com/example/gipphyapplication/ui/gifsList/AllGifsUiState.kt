@@ -1,6 +1,6 @@
 package com.example.gipphyapplication.ui.gifsList
 
-import com.example.domain.usecase.gifs.Gifs
+import com.example.domain.usecase.gifs.model.Gifs
 
 data class AllGifsUiState (
     val isLoading: Boolean = false,
