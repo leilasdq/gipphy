@@ -3,11 +3,14 @@ package com.example.gipphyapplication.ui.gifsList
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -22,6 +25,9 @@ import coil.compose.rememberAsyncImagePainter
 import com.example.domain.usecase.gifs.model.Gifs
 import com.example.gipphyapplication.R
 import com.example.gipphyapplication.ui.gifsList.contract.AllGifsUiState
+import com.example.gipphyapplication.ui.utils.ui.GiffyLoadingState
+import com.example.gipphyapplication.ui.utils.ui.GiffyTopAppBar
+import com.example.gipphyapplication.ui.utils.ui.theme.GiffyTheme
 
 @Composable
 fun GifsListScreen(
@@ -40,9 +46,23 @@ private fun GifsScreenExtraction(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    GifsScreenContainer(
-        uiState, onNavigateToDetailScreen
-    )
+    GiffyTheme {
+        Scaffold(
+            modifier = Modifier.fillMaxSize()
+        ) { padding ->
+            Column(
+                modifier = Modifier.padding(padding),
+            ) {
+                GiffyTopAppBar(
+                    isMainScreen = true,
+                )
+                GifsScreenContainer(
+                    uiState, onNavigateToDetailScreen
+                )
+            }
+        }
+    }
+
 }
 
 @Composable
@@ -62,13 +82,10 @@ private fun GifsListContainer(
     lazyPagingItems: LazyPagingItems<Gifs>?,
     onNavigateToGifsDetails: (String) -> Unit
 ) {
-
     val refreshLoadState = lazyPagingItems?.loadState?.refresh
 
-    if (lazyPagingItems == null) {
-        // TODO -> Impl Loading Screen using Loading Animation
-    } else if (refreshLoadState is LoadState.Loading) {
-        // TODO -> Impl Loading Screen using Loading Animation
+    if (lazyPagingItems == null || refreshLoadState is LoadState.Loading) {
+        GiffyLoadingState()
     } else if (refreshLoadState is LoadState.Error) {
         // TODO -> Impl Error
     } else {
