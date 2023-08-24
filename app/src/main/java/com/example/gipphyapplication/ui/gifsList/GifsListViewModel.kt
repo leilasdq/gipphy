@@ -1,10 +1,9 @@
 package com.example.gipphyapplication.ui.gifsList
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.common.GetResult
 import com.example.domain.usecase.gifs.GetAllGifsUseCase
+import com.example.gipphyapplication.ui.gifsList.contract.AllGifsUiState
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

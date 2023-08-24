@@ -76,4 +76,7 @@ dependencies {
     // alternatively - without Android dependencies for tests
     testImplementation "androidx.paging:paging-common-ktx:$rootProject.paging_version"
     implementation "androidx.paging:paging-compose:$rootProject.paging_version"
+
+    // navigation
+    implementation "androidx.navigation:navigation-compose:$rootProject.nav_version"
 }

@@ -1,4 +1,4 @@
-package com.example.gipphyapplication.ui.gifsList
+package com.example.gipphyapplication.ui.gifsList.contract
 
 import androidx.paging.PagingData
 import com.example.domain.usecase.gifs.model.Gifs
