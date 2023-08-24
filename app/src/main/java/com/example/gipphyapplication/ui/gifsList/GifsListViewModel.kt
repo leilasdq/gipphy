@@ -16,43 +16,28 @@ class GifsListViewModel(
     private val getAllGifsUseCase: GetAllGifsUseCase
 ) : ViewModel() {
 
+    private val _uiState = MutableStateFlow(AllGifsUiState())
+    val uiState: StateFlow<AllGifsUiState> = _uiState
+
     init {
         getAllGifs()
     }
 
-    private val _uiState = MutableStateFlow(AllGifsUiState())
-    val uiState: StateFlow<AllGifsUiState> = _uiState
+    fun updateLoading(isLoading: Boolean) {
+        _uiState.update {
+            it.copy(
+                isLoading = isLoading
+            )
+        }
+    }
 
 
     private fun getAllGifs() {
         viewModelScope.launch(Dispatchers.IO) {
-            getAllGifsUseCase().collect { result ->
-                when (result) {
-                    is GetResult.Success -> {
-                        _uiState.update {
-                            it.copy(
-                                gifsList = result.data ?: emptyList(),
-                                isLoading = false
-                            )
-                        }
-                    }
-
-                    is GetResult.Loading -> {
-                        _uiState.update {
-                            it.copy(isLoading = result.isLoading)
-                        }
-                    }
-
-                    is GetResult.Error -> {
-                        _uiState.update {
-                            it.copy(
-                                isLoading = false,
-                                isError = true,
-                                errorMsg = result.throwable?.message
-                            )
-                        }
-                    }
-                }
+            _uiState.update {
+                it.copy(
+                    gifsList = getAllGifsUseCase(),
+                )
             }
         }
 

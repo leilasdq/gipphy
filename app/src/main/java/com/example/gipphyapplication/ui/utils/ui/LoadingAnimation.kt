@@ -25,9 +25,9 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun LoadingAnimation(
-    circleSize: Dp = 36.dp,
-    animationDelay: Int = 400,
-    initialAlpha: Float = 0.3f
+    circleSize: Dp = 32.dp,
+    animationDelay: Int = 500,
+    initialAlpha: Float = 0.0f
 ) {
 
     // 3 circles
@@ -82,7 +82,7 @@ fun LoadingAnimation(
                     .size(size = circleSize)
                     .clip(shape = CircleShape)
                     .background(
-                        brush = Brush.horizontalGradient(
+                        brush = Brush.linearGradient(
                             colors = listOf(
                                 Color(0xFFFF5B5B),
                                 Color(0xFFFFF152),

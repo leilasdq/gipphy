@@ -11,11 +11,13 @@ import io.ktor.client.request.*
 class GetGifsServiceImpl(
     private val client: HttpClient
 ): GetGifsService {
-    override suspend fun getAllGifs(): GiffyResponseWrapper<List<GifsDto>> =
+    override suspend fun getAllGifs(limit: Int, offset: Int): GiffyResponseWrapper<List<GifsDto>> =
         try {
             client.get {
                 url(HttpRoutes.ALL_GIFS)
                 parameter("api_key", BuildConfig.API_KEY)
+                parameter("limit", limit)
+                parameter("offset", offset)
             }
         } catch (e: java.lang.Exception) {
             throw e

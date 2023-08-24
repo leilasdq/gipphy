@@ -70,4 +70,10 @@ dependencies {
     testImplementation "io.insert-koin:koin-test-junit4:3.2.0-beta-1"
     implementation "io.insert-koin:koin-core:$rootProject.koin_version"
     implementation "io.insert-koin:koin-android:$rootProject.koin_android_version"
+
+    // paging
+    implementation "androidx.paging:paging-runtime-ktx:$rootProject.paging_version"
+    // alternatively - without Android dependencies for tests
+    testImplementation "androidx.paging:paging-common-ktx:$rootProject.paging_version"
+    implementation "androidx.paging:paging-compose:$rootProject.paging_version"
 }

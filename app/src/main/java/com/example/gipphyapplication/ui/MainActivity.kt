@@ -4,6 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.runtime.collectAsState
+import androidx.paging.LoadState
+import androidx.paging.compose.collectAsLazyPagingItems
 import com.example.gipphyapplication.ui.gifsList.GifsListViewModel
 import com.example.gipphyapplication.ui.gifsList.screen.AllGigsListScreen
 import com.example.gipphyapplication.ui.utils.ui.BaseScreen
@@ -18,12 +20,23 @@ class MainActivity : ComponentActivity() {
         setContent {
 
             val state = viewModel.uiState.collectAsState()
+            val lazyPagingItems = state.value.gifsList?.collectAsLazyPagingItems()
+            val refreshLoadState = lazyPagingItems?.loadState?.refresh
 
             BaseScreen(
                 isMainScreen = true,
                 isLoading = state.value.isLoading,
             ) {
-                AllGigsListScreen(state.value.gifsList)
+
+                if (refreshLoadState is LoadState.Loading) {
+                    viewModel.updateLoading(true)
+                } else {
+                    if (lazyPagingItems!= null) {
+                        viewModel.updateLoading(false)
+                        AllGigsListScreen(lazyPagingItems)
+                    }
+                }
+
             }
 
         }
