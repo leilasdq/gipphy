@@ -1,7 +1,5 @@
 package com.example.gipphyapplication.ui.gifdetail
 
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,17 +15,12 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.layout.ContentScale
-import androidx.compose.ui.modifier.modifierLocalConsumer
-import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
-import coil.compose.rememberAsyncImagePainter
 import com.example.domain.usecase.gifs.model.Gifs
-import com.example.gipphyapplication.R
 import com.example.gipphyapplication.ui.gifdetail.contract.GifDetailUiState
 import com.example.gipphyapplication.ui.utils.ui.GiffyLoadingState
 import com.example.gipphyapplication.ui.utils.ui.GiffyTopAppBar
+import com.example.gipphyapplication.ui.utils.ui.components.GifImage
 import com.example.gipphyapplication.ui.utils.ui.theme.GiffyTheme
 
 @Composable
@@ -108,18 +101,11 @@ private fun GifDetailItem(
             modifier = Modifier.fillMaxSize().padding(8.dp),
             verticalArrangement = Arrangement.Top
         ) {
-            val painter = rememberAsyncImagePainter(
-                gif.image.original.url,
-                placeholder = painterResource(id = R.drawable.load),
-                error = painterResource(id = R.drawable.error)
-            )
-            Image(
-                painter = painter,
-                contentDescription = "gif image sample",
-                contentScale = ContentScale.Crop,
+            GifImage(
                 modifier = Modifier
                     .aspectRatio(1f)
-                    .padding(4.dp)
+                    .padding(4.dp),
+                gifImage = gif.image.original.url
             )
             Spacer(modifier = Modifier.size(8.dp))
             Text(text = gif.title)
