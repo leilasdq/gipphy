@@ -58,18 +58,18 @@ dependencies {
     implementation "androidx.compose.ui:ui-tooling-preview:$rootProject.compose_version"
     androidTestImplementation "androidx.compose.ui:ui-test-junit4:$rootProject.compose_version"
     debugImplementation "androidx.compose.ui:ui-tooling:$rootProject.compose_version"
-    implementation "io.coil-kt:coil-compose:$rootProject.composeCoil_version"
     implementation "androidx.activity:activity-compose:1.7.2"
 
     // coil dependencies
-    implementation "io.coil-kt:coil-compose:2.2.2"
+    implementation "io.coil-kt:coil-compose:$rootProject.coil_version"
+    implementation "io.coil-kt:coil-gif:$rootProject.coil_gif_version"
 
     //koin dependencies
-    implementation "io.insert-koin:koin-androidx-navigation:3.2.0-beta-1"
-    implementation "io.insert-koin:koin-androidx-compose:3.4.2"
-    testImplementation "io.insert-koin:koin-test-junit4:3.2.0-beta-1"
+    implementation "io.insert-koin:koin-androidx-navigation:$rootProject.koin_extentions_version"
+    testImplementation "io.insert-koin:koin-test-junit4:$rootProject.koin_extentions_version"
     implementation "io.insert-koin:koin-core:$rootProject.koin_version"
-    implementation "io.insert-koin:koin-android:$rootProject.koin_android_version"
+    implementation "io.insert-koin:koin-androidx-compose:$rootProject.koin_version"
+    implementation "io.insert-koin:koin-android:$rootProject.koin_version"
 
     // paging
     implementation "androidx.paging:paging-runtime-ktx:$rootProject.paging_version"

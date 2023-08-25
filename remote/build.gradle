@@ -54,11 +54,11 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$rootProject.serialization_version"
 
     //koin dependencies
-    implementation "io.insert-koin:koin-androidx-navigation:3.2.0-beta-1"
-    implementation "io.insert-koin:koin-androidx-compose:3.4.2"
-    testImplementation "io.insert-koin:koin-test-junit4:3.2.0-beta-1"
+    implementation "io.insert-koin:koin-androidx-navigation:$rootProject.koin_extentions_version"
+    testImplementation "io.insert-koin:koin-test-junit4:$rootProject.koin_extentions_version"
     implementation "io.insert-koin:koin-core:$rootProject.koin_version"
-    implementation "io.insert-koin:koin-android:$rootProject.koin_android_version"
+    implementation "io.insert-koin:koin-androidx-compose:$rootProject.koin_version"
+    implementation "io.insert-koin:koin-android:$rootProject.koin_version"
 
     // paging
     implementation "androidx.paging:paging-runtime-ktx:$rootProject.paging_version"
