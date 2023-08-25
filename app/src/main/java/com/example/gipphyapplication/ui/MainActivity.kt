@@ -8,6 +8,7 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
+import com.example.gipphyapplication.ui.utils.navigation.Navigator
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

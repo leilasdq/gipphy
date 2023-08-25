@@ -8,4 +8,5 @@ import kotlinx.coroutines.flow.Flow
 interface GetGifsRepository {
 
     fun getAllGifs(): Flow<PagingData<Gifs>>
+    fun getGifDetail(gifId: String): Flow<GetResult<Gifs?>>
 }

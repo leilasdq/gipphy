@@ -6,5 +6,5 @@ import com.example.remote.utils.GiffyResponseWrapper
 interface GetGifsService {
 
     suspend fun getAllGifs(limit: Int, offset: Int) : GiffyResponseWrapper<List<GifsDto>>
-    suspend fun getGifDetail(id: String): GifsDto
+    suspend fun getGifDetail(id: String): GiffyResponseWrapper<List<GifsDto>>
 }
