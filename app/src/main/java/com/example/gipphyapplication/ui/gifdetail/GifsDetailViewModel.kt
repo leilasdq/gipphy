@@ -3,26 +3,30 @@ package com.example.gipphyapplication.ui.gifdetail
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.common.GetResult
-import com.example.domain.usecase.gifs.GetAllGifsUseCase
 import com.example.domain.usecase.gifs.GetGifDetailsUseCase
 import com.example.gipphyapplication.ui.gifdetail.contract.GifDetailUiState
-import com.example.gipphyapplication.ui.gifsList.contract.AllGifsUiState
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 
 class GifsDetailViewModel(
-//    savedStateHandle: SavedStateHandle,
-    private val getGifDetailsUseCase: GetGifDetailsUseCase
+    private val getGifDetailsUseCase: GetGifDetailsUseCase,
+    private val gifId: String,
 ) : ViewModel() {
 
     private val _uiState = MutableStateFlow(GifDetailUiState())
     val uiState: StateFlow<GifDetailUiState> = _uiState
 
-    fun getGifDetailObject(gifId: String) {
+    init {
+        getGifDetailObject(gifId)
+    }
+
+    fun retry() {
+        getGifDetailObject(gifId)
+    }
+
+    private fun getGifDetailObject(gifId: String) {
         viewModelScope.launch {
             getGifDetailsUseCase(GetGifDetailsUseCase.GifDetailUseCaseArgs(gifId = gifId)).collect { result ->
                 when (result) {

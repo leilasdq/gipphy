@@ -6,6 +6,6 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val vmModule = module {
-    viewModel { GifsListViewModel(get()) }
-    viewModel { GifsDetailViewModel(get()) }
+    viewModel { GifsListViewModel(getAllGifsUseCase = get()) }
+    viewModel { GifsDetailViewModel(getGifDetailsUseCase = get(), gifId = get()) }
 }

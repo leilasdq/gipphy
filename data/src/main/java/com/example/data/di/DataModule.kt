@@ -7,9 +7,6 @@ import org.koin.dsl.module
 
 val dataModule = module {
     includes(remoteModule)
-    single {
-        "Hello"
-    }
     single<GetGifsRepository> {
         GetGifsRepositoryImpl(get())
     }

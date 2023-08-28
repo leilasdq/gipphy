@@ -57,7 +57,8 @@ private fun GifsScreenExtraction(
                     isMainScreen = true,
                 )
                 GifsScreenContainer(
-                    uiState, onNavigateToDetailScreen
+                    uiState = uiState,
+                    onNavigateToDetailScreen = onNavigateToDetailScreen,
                 )
             }
         }

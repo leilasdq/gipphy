@@ -11,6 +11,8 @@ import com.example.gipphyapplication.ui.gifdetail.GifsDetailViewModel
 import com.example.gipphyapplication.ui.gifsList.GifsListScreen
 import com.example.gipphyapplication.ui.gifsList.GifsListViewModel
 import org.koin.androidx.compose.get
+import org.koin.androidx.compose.koinViewModel
+import org.koin.core.parameter.parametersOf
 
 @Composable
 fun Navigator(
@@ -18,7 +20,7 @@ fun Navigator(
 ) {
     NavHost(navController = navController, startDestination = Screens.GIFS_LIST.route) {
         composable(Screens.GIFS_LIST.route) {
-            val viewModel: GifsListViewModel = get()
+            val viewModel: GifsListViewModel = koinViewModel()
             GifsListScreen(
                 viewModel = viewModel,
                 onNavigateToDetailScreen = {
@@ -34,10 +36,11 @@ fun Navigator(
                 type = NavType.StringType
             })
         ) { backStack ->
-            val viewModel: GifsDetailViewModel = get()
+            val viewModel: GifsDetailViewModel = get {
+                parametersOf(backStack.arguments?.getString(ScreenArgs.GIFS_ID.argName) ?: "")
+            }
             GifsDetailScreen(
                 viewModel = viewModel,
-                gifId = backStack.arguments?.getString(ScreenArgs.GIFS_ID.argName) ?: "",
                 onNavigateBack = {
                     navController.navigateUp()
                 })

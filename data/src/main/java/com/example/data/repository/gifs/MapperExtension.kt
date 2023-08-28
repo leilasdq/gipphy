@@ -8,13 +8,13 @@ import com.example.remote.dto.GifImageDto
 import com.example.remote.dto.GifsDto
 
 fun GifsDto.toDomain() = Gifs(
-    id, title, username, rating, images.toDomain()
+    id = id,
+    title = title,
+    username = username,
+    rating = rating,
+    image = images.toDomain(),
 )
 
-fun GifImageDto.toDomain() = GifsImage(
-    original.toDomain()
-)
-fun GifImageDetailDto.toDomain() = GifImageDetail(
-    url
-)
+fun GifImageDto.toDomain() = GifsImage(original = original.toDomain())
 
+fun GifImageDetailDto.toDomain() = GifImageDetail(url = url)

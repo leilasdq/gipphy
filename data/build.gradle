@@ -35,14 +35,6 @@ dependencies {
     implementation project(':domain')
     implementation project(':common')
 
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.9.0'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
-
-
     //koin dependencies
     implementation "io.insert-koin:koin-androidx-navigation:$rootProject.koin_extentions_version"
     testImplementation "io.insert-koin:koin-test-junit4:$rootProject.koin_extentions_version"
@@ -52,6 +44,4 @@ dependencies {
 
     // paging
     implementation "androidx.paging:paging-runtime-ktx:$rootProject.paging_version"
-    // alternatively - without Android dependencies for tests
-    testImplementation "androidx.paging:paging-common-ktx:$rootProject.paging_version"
 }

@@ -6,9 +6,9 @@ import org.koin.dsl.module
 
 val domainModule = module {
     single {
-        GetAllGifsUseCase(get())
+        GetAllGifsUseCase(repository = get())
     }
     single {
-        GetGifDetailsUseCase(get())
+        GetGifDetailsUseCase(repository = get())
     }
 }

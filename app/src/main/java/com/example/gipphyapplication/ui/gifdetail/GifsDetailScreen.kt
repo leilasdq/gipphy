@@ -26,12 +26,8 @@ import com.example.gipphyapplication.ui.utils.ui.theme.GiffyTheme
 @Composable
 fun GifsDetailScreen(
     viewModel: GifsDetailViewModel,
-    gifId: String,
     onNavigateBack: () -> Unit
 ) {
-    LaunchedEffect(key1 = viewModel) {
-        viewModel.getGifDetailObject(gifId)
-    }
     GifDetailScreenExtraction(
         viewModel, onNavigateBack
     )
@@ -55,9 +51,7 @@ private fun GifDetailScreenExtraction(
                     isMainScreen = false,
                     onNavigateBack = onNavigateBack
                 )
-                GifsScreenContainer(
-                    uiState
-                )
+                GifsScreenContainer(uiState = uiState)
             }
         }
     }
