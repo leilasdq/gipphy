@@ -9,14 +9,18 @@ import com.example.remote.utils.Constants.GIF_ID
 import com.example.remote.utils.Constants.LIMIT
 import com.example.remote.utils.Constants.OFFSET
 import com.example.remote.utils.GiffyResponseWrapper
+import com.example.remote.utils.getBuildProperties
 import io.ktor.client.*
 import io.ktor.client.request.*
+import java.util.Locale
 
 class GetGifsServiceImpl(
     private val client: HttpClient
 ): GetGifsService {
+
     override suspend fun getAllGifs(limit: Int, offset: Int): GiffyResponseWrapper<List<GifsDto>> =
         try {
+
             client.get {
                 url(HttpRoutes.ALL_GIFS)
                 parameter(API_KEY, BuildConfig.API_KEY)
