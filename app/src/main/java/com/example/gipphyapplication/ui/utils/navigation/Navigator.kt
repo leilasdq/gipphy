@@ -6,12 +6,12 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.example.gipphyapplication.ui.gifdetail.GifsDetailScreen
-import com.example.gipphyapplication.ui.gifdetail.GifsDetailViewModel
-import com.example.gipphyapplication.ui.gifsList.GifsListScreen
-import com.example.gipphyapplication.ui.gifsList.GifsListViewModel
-import org.koin.androidx.compose.get
+import com.example.gifitemdetail.ui.GifsDetailScreen
+import com.example.gifitemdetail.ui.GifsDetailViewModel
+import com.example.giflist.ui.GifsListScreen
+import com.example.giflist.ui.GifsListViewModel
 import org.koin.androidx.compose.koinViewModel
+import org.koin.compose.koinInject
 import org.koin.core.parameter.parametersOf
 
 @Composable
@@ -36,7 +36,7 @@ fun Navigator(
                 type = NavType.StringType
             })
         ) { backStack ->
-            val viewModel: GifsDetailViewModel = get {
+            val viewModel: GifsDetailViewModel = koinInject {
                 parametersOf(backStack.arguments?.getString(ScreenArgs.GIFS_ID.argName) ?: "")
             }
             GifsDetailScreen(

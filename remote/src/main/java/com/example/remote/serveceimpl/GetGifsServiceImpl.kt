@@ -9,10 +9,10 @@ import com.example.remote.utils.Constants.GIF_ID
 import com.example.remote.utils.Constants.LIMIT
 import com.example.remote.utils.Constants.OFFSET
 import com.example.remote.utils.GiffyResponseWrapper
-import com.example.remote.utils.getBuildProperties
-import io.ktor.client.*
-import io.ktor.client.request.*
-import java.util.Locale
+import io.ktor.client.HttpClient
+import io.ktor.client.request.get
+import io.ktor.client.request.parameter
+import io.ktor.client.request.url
 
 class GetGifsServiceImpl(
     private val client: HttpClient
