@@ -48,13 +48,13 @@ fun readProperties(propertiesFile: File) = Properties().apply {
 
 dependencies {
 
-    implementation ("androidx.core:core-ktx:1.7.0")
-    implementation ("androidx.appcompat:appcompat:1.6.1")
-    implementation ("com.google.android.material:material:1.9.0")
-    implementation ("androidx.constraintlayout:constraintlayout:2.1.4")
-    testImplementation ("junit:junit:4.13.2")
-    androidTestImplementation ("androidx.test.ext:junit:1.1.5")
-    androidTestImplementation ("androidx.test.espresso:espresso-core:3.5.1")
+    implementation (Libraries.AndroidX.core)
+    implementation (Libraries.AndroidX.appCompat)
+    implementation (Libraries.AndroidX.material)
+    implementation (Libraries.AndroidX.constraintlayout)
+    testImplementation (Libraries.Test.junit)
+    androidTestImplementation (Libraries.Test.junitExt)
+    androidTestImplementation (Libraries.Test.espresso)
 
     //ktor dependencies
     implementation("io.ktor:ktor-client-core:${rootProject.ext.get("ktor_version")}")
@@ -65,10 +65,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${rootProject.ext.get("serialization_version")}")
 
     //koin dependencies
-    implementation("io.insert-koin:koin-core:${rootProject.ext.get("koin_version")}")
-    implementation ("io.insert-koin:koin-android:${rootProject.ext.get("koin_version")}")
-
-
-    // paging
-    implementation("androidx.paging:paging-common:${rootProject.ext.get("paging_version")}")
+    implementation(Libraries.Koin.koinCore)
+    //paging dependencies
+    implementation(Libraries.Paging.pagingCommon)
 }

@@ -1,6 +1,4 @@
 plugins {
-    //id ("kotlin")
-
     id ("com.android.library")
     id ("org.jetbrains.kotlin.android")
 }
@@ -40,8 +38,8 @@ dependencies {
     implementation (project(":common"))
 
     //koin dependencies
-    implementation ("io.insert-koin:koin-core:${rootProject.ext.get("koin_version")}")
+    implementation (Libraries.Koin.koinCore)
 
     // paging
-    implementation("androidx.paging:paging-common:${rootProject.ext.get("paging_version")}")
+    implementation(Libraries.Paging.pagingCommon)
 }

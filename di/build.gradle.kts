@@ -8,5 +8,5 @@ dependencies {
     implementation(project(":domain"))
 
     //koin dependencies
-    implementation("io.insert-koin:koin-core:${rootProject.ext.get("koin_version")}")
+    implementation(Libraries.Koin.koinCore)
 }
