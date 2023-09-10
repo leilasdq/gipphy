@@ -2,9 +2,9 @@ import java.io.*
 import java.util.*
 
 plugins {
-    id ("com.android.library")
-    id ("org.jetbrains.kotlin.android")
-    id ("org.jetbrains.kotlin.plugin.serialization")
+    id (Plugins.androidLibraryPlugin)
+    id (Plugins.kotlinAndroidPlugin)
+    id (Plugins.kotlinSerializationPlugin)
 }
 
 android {
