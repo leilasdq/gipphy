@@ -12,10 +12,9 @@ android {
     namespace = "com.example.remote"
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
+        minSdk = AndroidVersioning.minSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidVersioning.testInstrumentationRunner
 
         val projectProperties = readProperties(file("../local.properties"))
         buildConfigField("String", "API_KEY", "\"${projectProperties.getProperty("API_KEY")}\"")

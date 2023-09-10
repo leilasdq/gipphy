@@ -4,17 +4,17 @@ plugins {
 }
 
 android {
-    namespace = "com.example.gipphyapplication"
-    compileSdk = 33
+    namespace = AndroidVersioning.namespace
+    compileSdk = AndroidVersioning.compileSdk
 
     defaultConfig {
-        applicationId = "com.example.gipphyapplication"
-        minSdk = 24
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AndroidVersioning.applicationId
+        minSdk = AndroidVersioning.minSdk
+        targetSdk = AndroidVersioning.targetSdk
+        versionCode = AndroidVersioning.versionCode
+        versionName = AndroidVersioning.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidVersioning.testInstrumentationRunner
     }
 
     buildTypes {

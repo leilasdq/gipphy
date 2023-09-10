@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.gifitemdetail"
-    compileSdk = 33
+    compileSdk = AndroidVersioning.compileSdk
 
     defaultConfig {
-        minSdk = 24
+        minSdk = AndroidVersioning.minSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidVersioning.testInstrumentationRunner
         consumerProguardFiles("consumer-rules.pro")
     }
 

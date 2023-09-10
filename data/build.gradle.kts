@@ -4,14 +4,13 @@ plugins {
 }
 
 android {
-    compileSdk = 33
+    compileSdk = AndroidVersioning.compileSdk
     namespace = "com.example.data"
 
     defaultConfig {
-        minSdk = 24
-        targetSdk = 33
+        minSdk = AndroidVersioning.minSdk
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AndroidVersioning.testInstrumentationRunner
     }
 
     buildTypes {
