@@ -1,28 +1,7 @@
 import java.io.*
-import java.io.FileInputStream
 import java.util.*
 
-//fun getLocalProperty(key: String, file: String = "local.properties"): Any {
-//    val properties = Properties()
-//    val localProperties = File(file)
-//    if (localProperties.isFile) {
-//        InputStreamReader(FileInputStream(localProperties), Charsets.UTF_8).use { reader ->
-//            properties.load(reader)
-//        }
-//    } else error("File from not found")
-//
-//    return properties.getProperty(key)
-//}
-//
-//task("printKey") {
-//    doLast {
-//        val key = getLocalProperty("API_KEY")
-//        println(key)
-//    }
-//}
-
 plugins {
-    //id ("kotlin")
     id ("com.android.library")
     id ("org.jetbrains.kotlin.android")
     id ("org.jetbrains.kotlin.plugin.serialization")
@@ -93,10 +72,3 @@ dependencies {
     // paging
     implementation("androidx.paging:paging-common:${rootProject.ext.get("paging_version")}")
 }
-
-
-/*
-* Properties prop = new Properties()
-        prop.load(new FileInputStream(new File('local.properties')))
-        buildConfigField "String", "API_KEY", "\"${prop.getProperty("API_KEY")}\""
-* */

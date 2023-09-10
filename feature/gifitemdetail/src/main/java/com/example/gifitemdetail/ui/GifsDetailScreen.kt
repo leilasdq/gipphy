@@ -18,6 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.example.domain.usecase.gifs.model.Gifs
 import com.example.gifitemdetail.ui.contract.GifDetailUiState
 import com.example.widgets.ui.GiffyLoadingState
+import com.example.widgets.ui.components.GifImage
+import com.example.widgets.ui.theme.GiffyTheme
 
 @Composable
 fun GifsDetailScreen(
@@ -36,7 +38,7 @@ private fun GifDetailScreenExtraction(
 ) {
     val uiState by viewModel.uiState.collectAsState()
 
-    com.example.widgets.ui.theme.GiffyTheme {
+    GiffyTheme {
         Scaffold(
             modifier = Modifier.fillMaxSize()
         ) { padding ->
@@ -91,7 +93,7 @@ private fun GifDetailItem(
             modifier = Modifier.fillMaxSize().padding(8.dp),
             verticalArrangement = Arrangement.Top
         ) {
-            com.example.widgets.ui.components.GifImage(
+            GifImage(
                 modifier = Modifier
                     .aspectRatio(1f)
                     .padding(4.dp),
