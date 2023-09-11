@@ -59,8 +59,4 @@ dependencies {
     // coil dependencies
     implementation (Libraries.Coil.coil)
     implementation (Libraries.Coil.coilGif)
-    
-    // coil dependencies
-    implementation ("io.coil-kt:coil-compose:${rootProject.ext.get("coil_version")}")
-    implementation ("io.coil-kt:coil-gif:${rootProject.ext.get("coil_gif_version")}")
 }
