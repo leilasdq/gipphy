@@ -16,10 +16,16 @@ object Libraries {
         private const val junitVersion = "4.13.2"
         private const val junitExtVersion = "1.1.5"
         private const val espressoVersion = "3.5.1"
+        private const val robolectricVersion = "4.7.3"
+        private const val mockkVersion = "1.12.2"
+        private const val testManifestVersion = "1.0.0-beta05"
 
         const val junit = "junit:junit:$junitVersion"
         const val junitExt = "androidx.test.ext:junit:$junitExtVersion"
         const val espresso = "androidx.test.espresso:espresso-core:$espressoVersion"
+        const val robolectric = "org.robolectric:robolectric:$robolectricVersion"
+        const val mockk = "io.mockk:mockk:$mockkVersion"
+        const val testManifest = "androidx.compose.ui:ui-test-manifest:$testManifestVersion"
     }
 
     object Compose {

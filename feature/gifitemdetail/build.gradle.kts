@@ -14,6 +14,12 @@ android {
         consumerProguardFiles("consumer-rules.pro")
     }
 
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = false
@@ -48,7 +54,6 @@ dependencies {
     implementation (Libraries.AndroidX.appCompat)
     implementation (Libraries.AndroidX.material)
     implementation (Libraries.AndroidX.constraintlayout)
-    testImplementation (Libraries.Test.junit)
     androidTestImplementation (Libraries.Test.junitExt)
     androidTestImplementation (Libraries.Test.espresso)
 
@@ -56,7 +61,13 @@ dependencies {
     implementation (Libraries.Compose.composeUi)
     implementation (Libraries.Compose.composeMaterial)
     implementation (Libraries.Compose.composePreview)
-    androidTestImplementation (Libraries.Compose.composeTest)
     debugImplementation (Libraries.Compose.composeUiTooling)
     implementation (Libraries.Compose.composeActivity)
+
+    // Test
+    testImplementation(Libraries.Test.robolectric)
+    testImplementation(Libraries.Test.mockk)
+    testImplementation (Libraries.Compose.composeTest)
+    testImplementation (Libraries.Test.junit)
+    debugImplementation(Libraries.Test.testManifest)
 }
