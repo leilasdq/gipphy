@@ -8,7 +8,7 @@ class GetGifDetailsUseCase(
         val gifId: String
     )
 
-    suspend operator fun invoke(args: GifDetailUseCaseArgs) = with(args) {
+    operator fun invoke(args: GifDetailUseCaseArgs) = with(args) {
         repository.getGifDetail(gifId)
     }
 }

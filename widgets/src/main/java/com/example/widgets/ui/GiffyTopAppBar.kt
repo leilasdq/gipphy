@@ -12,6 +12,7 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.widgets.R
@@ -27,6 +28,7 @@ fun GiffyTopAppBar(
             backgroundColor = Color.Black,
             modifier = Modifier
                 .fillMaxWidth()
+                .testTag("topbar")
         ) {
             Icon(
                 painter = painterResource(id = R.drawable.giphy_logo),
@@ -45,9 +47,11 @@ fun GiffyTopAppBar(
                 Icon(
                     painter = painterResource(id = R.drawable.ic_arrow_back),
                     contentDescription = "back",
-                    modifier = Modifier.clickable {
-                        onNavigateBack()
-                    },
+                    modifier = Modifier
+                        .clickable {
+                            onNavigateBack()
+                        }
+                        .testTag("topbarBackIcon"),
                     tint = Color.White
                 )
             }

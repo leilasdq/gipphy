@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.dp
 import com.example.domain.usecase.gifs.model.Gifs
 import com.example.gifitemdetail.ui.contract.GifDetailUiState
 import com.example.widgets.ui.GiffyLoadingState
+import com.example.widgets.ui.GiffyTopAppBar
 import com.example.widgets.ui.components.GifImage
 import com.example.widgets.ui.theme.GiffyTheme
 
@@ -45,7 +46,7 @@ private fun GifDetailScreenExtraction(
             Column(
                 modifier = Modifier.padding(padding),
             ) {
-                com.example.widgets.ui.GiffyTopAppBar(
+                GiffyTopAppBar(
                     isMainScreen = false,
                     onNavigateBack = onNavigateBack
                 )
@@ -90,7 +91,9 @@ private fun GifDetailItem(
 ) {
     gifItem?.let { gif ->
         Column(
-            modifier = Modifier.fillMaxSize().padding(8.dp),
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(8.dp),
             verticalArrangement = Arrangement.Top
         ) {
             GifImage(
