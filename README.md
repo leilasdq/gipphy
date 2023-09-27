@@ -20,7 +20,7 @@ Gipphy is a powerful app that allows users to explore and search for GIFs using 
 - [Jetpack Compose](https://developer.android.com/jetpack/compose): A modern UI toolkit for building native Android apps.
 - [Ktor](https://ktor.io/): A multiplatform framework for building asynchronous servers and clients.
 - [Koin](https://insert-koin.io/): A pragmatic lightweight dependency injection framework for Kotlin.
-- [Paging](https://developer.android.com/topic/libraries/architecture/paging): A library for gradually loading data in pages on Android.
+- [Paging](https://developer.android.com/topic/libraries/architecture/paging/v3-overview): A library for gradually loading data in pages on Android.
 - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel): A component designed to store and manage UI-related data in a lifecycle-conscious way.
 - Clean Architecture: A software design principle that fosters separation of concerns and maintainability.
 - Test: In addition to the above technologies, the project includes various testing techniques to ensure code quality and reliability(Using [Mockk](https://mockk.io/) and [Robolectric](https://robolectric.org/)).
