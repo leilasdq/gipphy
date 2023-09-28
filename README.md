@@ -9,8 +9,6 @@ Gipphy is a powerful app that allows users to explore and search for GIFs using 
 ## Features
 
 - Explore trending GIFs
-- Search for specific GIFs based on keywords
-- Favorite and save GIFs for future reference
 - Clean Architecture design for modular and testable code
 - Seamless pagination for smooth loading of GIFs
 - ViewModel architecture for managing app state
