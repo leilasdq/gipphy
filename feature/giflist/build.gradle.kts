@@ -26,6 +26,11 @@ android {
     buildFeatures {
         compose = true
     }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -47,7 +52,6 @@ dependencies {
     implementation (Libraries.AndroidX.appCompat)
     implementation (Libraries.AndroidX.material)
     implementation (Libraries.AndroidX.constraintlayout)
-    testImplementation (Libraries.Test.junit)
     androidTestImplementation (Libraries.Test.junitExt)
     androidTestImplementation (Libraries.Test.espresso)
 
@@ -55,7 +59,6 @@ dependencies {
     implementation (Libraries.Compose.composeUi)
     implementation (Libraries.Compose.composeMaterial)
     implementation (Libraries.Compose.composePreview)
-    androidTestImplementation (Libraries.Compose.composeTest)
     debugImplementation (Libraries.Compose.composeUiTooling)
     implementation (Libraries.Compose.composeActivity)
 
@@ -75,4 +78,11 @@ dependencies {
     // alternatively - without Android dependencies for tests
     testImplementation (Libraries.Paging.pagingCommonTest)
     implementation (Libraries.Paging.pagingCompose)
+
+    // Test
+    testImplementation(Libraries.Test.robolectric)
+    testImplementation(Libraries.Test.mockk)
+    testImplementation (Libraries.Compose.composeTest)
+    testImplementation (Libraries.Test.junit)
+    debugImplementation(Libraries.Test.testManifest)
 }
