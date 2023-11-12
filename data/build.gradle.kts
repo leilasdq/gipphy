@@ -13,6 +13,12 @@ android {
         testInstrumentationRunner = AndroidVersioning.testInstrumentationRunner
     }
 
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
+
     buildTypes {
         getByName("release") {
             isMinifyEnabled = false
@@ -41,4 +47,11 @@ dependencies {
 
     // paging
     implementation(Libraries.Paging.pagingCommon)
+
+    // Test
+    testImplementation(Libraries.Test.robolectric)
+    testImplementation(Libraries.Test.mockk)
+    testImplementation (Libraries.Test.junit)
+    debugImplementation(Libraries.Test.testManifest)
+    debugImplementation(Libraries.Test.coroutinesTest)
 }

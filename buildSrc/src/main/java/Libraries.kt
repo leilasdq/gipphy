@@ -19,6 +19,7 @@ object Libraries {
         private const val robolectricVersion = "4.7.3"
         private const val mockkVersion = "1.12.2"
         private const val testManifestVersion = "1.0.0-beta05"
+        private const val coroutinesTestVersion = "1.7.3"
 
         const val junit = "junit:junit:$junitVersion"
         const val junitExt = "androidx.test.ext:junit:$junitExtVersion"
@@ -26,6 +27,7 @@ object Libraries {
         const val robolectric = "org.robolectric:robolectric:$robolectricVersion"
         const val mockk = "io.mockk:mockk:$mockkVersion"
         const val testManifest = "androidx.compose.ui:ui-test-manifest:$testManifestVersion"
+        const val coroutinesTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesTestVersion"
     }
 
     object Compose {
