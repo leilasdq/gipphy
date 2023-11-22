@@ -36,7 +36,7 @@ fun Navigator(
                 type = NavType.StringType
             })
         ) { backStack ->
-            val viewModel: GifsDetailViewModel = koinInject {
+            val viewModel: GifsDetailViewModel = koinViewModel {
                 parametersOf(backStack.arguments?.getString(ScreenArgs.GIFS_ID.argName) ?: "")
             }
             GifsDetailScreen(
